@@ -5,7 +5,7 @@
 	$.extend($.fn, {
 		id: function (id)
 		{
-			if (id && typeof("id") == "string")
+			if (id && typeof(id) == "string")
 			{
 				return this.each(function ()
 				{
