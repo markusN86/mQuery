@@ -15,5 +15,5 @@
 			else
 				return this[0].attr("id");
 		}
-	}
+	});
 })(jQuery);
