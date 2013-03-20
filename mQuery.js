@@ -15,17 +15,17 @@
 			else
 				return this[0].attr("id");
 		},
-		title: function (id)
+		title: function (title)
 		{
-			if (id && typeof(id) == "string")
+			if (title && typeof(id) == "string")
 			{
 				return this.each(function ()
 				{
-					$(this).attr("id", id);
+					$(this).attr("title", title);
 				});
 			}
 			else
-				return this[0].attr("id");
+				return this[0].attr("title");
 		}
 	});
 })(jQuery);
