@@ -26,6 +26,18 @@
 			}
 			else
 				return this[0].attr("title");
+		},
+		src: function (src)
+		{
+			if (src && typeof(id) == "string")
+			{
+				return this.each(function ()
+				{
+					$(this).attr("src", src);
+				});
+			}
+			else
+				return this[0].attr("src");
 		}
 	});
 })(jQuery);
