@@ -48,9 +48,9 @@
 		},
 		center: function(w, h)
 		{
-			var parent = this.parent(),
-				pHeight = h || parent.innerHeight(),
-				pWidth = w || parent.innerWidth(),
+			var $parent = this.parent(),
+				pHeight = h || $parent.innerHeight(),
+				pWidth = w || $parent.innerWidth(),
 				elHeight = this.outerHeight(),
 				elWidth = this.innerWidth(),
 				ratio = elWidth / elHeight,
@@ -108,16 +108,11 @@
 		},
 		centerHorizontal: function ()
 		{
-			var parent = this.parent(),
-				pHeight = parent.height(),
+			var $parent = this.parent(),
+				pHeight = $parent.height(),
 				height = this.height(),
-				newHeight = height,
-				top;
-
-			if (height > pHeight)
-				newHeight = pHeight;
-
-			top = (pHeight - newHeight) / 2;
+				newHeight = height > pHeight ? pHeight : height,
+				top = (pHeight - newHeight) / 2;
 
 			return this.css({
 				top: top,
