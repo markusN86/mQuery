@@ -25,7 +25,7 @@
 				});
 			}
 			else
-				return this[0].attr(name);
+				return this.eq(0).attr(name);
 		}
 	});
 })(jQuery);
