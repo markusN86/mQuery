@@ -28,21 +28,21 @@
 		{
 			return _attribute.apply(this, ["src", src]);
 		},
-		nextCycle: function ()
+		nextCycle: function (selector)
 		{
-			var $el = this.next();
+			var $el = this.next(selector);
 
 			if (!$el.length)
-				$el = this.parent().children(":first-child");
+				$el = this.parent().children(selector + ":first-child");
 
 			return $el;
 		},
-		prevCycle: function ()
+		prevCycle: function (selector)
 		{
-			var $el = this.prev();
+			var $el = this.prev(selector);
 
 			if (!$el.length)
-				$el = this.parent().children(":last-child");
+				$el = this.parent().children(selector + ":last-child");
 
 			return $el;
 		},
