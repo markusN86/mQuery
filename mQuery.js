@@ -118,6 +118,19 @@
 				top: top,
 				height: newHeight
 			});
+		},
+		centerVertical: function ()
+		{
+			var $parent = this.parent(),
+				pWidth = $parent.width(),
+				width = this.width(),
+				newWidth = width > pWidth ? pWidth : width,
+				left = (pWidth - newWidth) / 2;
+
+			return this.css({
+				left: left,
+				width: newWidth
+			});
 		}
 	});
 })(jQuery);
