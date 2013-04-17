@@ -106,7 +106,7 @@
 				height: height
 			});
 		},
-		centerHorizontal: function ()
+		centerVertical: function ()
 		{
 			var $parent = this.parent(),
 				pHeight = $parent.height(),
@@ -119,7 +119,7 @@
 				height: newHeight
 			});
 		},
-		centerVertical: function ()
+		centerHorizontal: function ()
 		{
 			var $parent = this.parent(),
 				pWidth = $parent.width(),
