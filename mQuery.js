@@ -33,7 +33,7 @@
 			var $el = this.next(selector);
 
 			if (!$el.length)
-				$el = this.parent().children(selector + ":first-child");
+				$el = this.parent().children(selector).eq(0);
 
 			return $el;
 		},
@@ -42,7 +42,10 @@
 			var $el = this.prev(selector);
 
 			if (!$el.length)
-				$el = this.parent().children(selector + ":last-child");
+			{
+				$el = this.parent().children(selector);
+				$el = $el.eq($el.length - 1);
+			}
 
 			return $el;
 		},
