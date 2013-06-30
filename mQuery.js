@@ -51,7 +51,7 @@
 		},
 		center: function(w, h)
 		{
-			var $parent = this.parent(),
+			var $parent = this.offsetParent(),
 				pHeight = h || $parent.innerHeight(),
 				pWidth = w || $parent.innerWidth(),
 				elHeight = this.outerHeight(),
