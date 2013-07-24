@@ -146,6 +146,18 @@
 					width: newWidth
 				});
 			});
+		},
+		clearDimensions: function ()
+		{
+			return this.each(function ()
+			{
+				$(this).css({
+					width: "",
+					height: "",
+					left: "",
+					top: ""
+				});
+			});
 		}
 	});
 })(jQuery);
