@@ -53,12 +53,12 @@
 		{
 			return this.each(function ()
 			{
-				var $this = $(this),
-					$parent = $this.offsetParent(),
+				var $el= $(this),
+					$parent = $el.offsetParent(),
 					pHeight = h || $parent.innerHeight(),
 					pWidth = w || $parent.innerWidth(),
-					elHeight = $this.outerHeight(),
-					elWidth = $this.innerWidth(),
+					elHeight = $el.outerHeight(),
+					elWidth = $el.innerWidth(),
 					ratio = elWidth / elHeight,
 					height = elHeight, width = elWidth, top = 0, left = 0;
 
@@ -105,7 +105,7 @@
 					}
 				}
 
-				$this.css({
+				$el.css({
 					top: top,
 					left: left,
 					width: width,
@@ -115,28 +115,36 @@
 		},
 		centerVertical: function ()
 		{
-			var $parent = this.parent(),
-				pHeight = $parent.height(),
-				height = this.height(),
-				newHeight = height > pHeight ? pHeight : height,
-				top = (pHeight - newHeight) / 2;
+			return this.each(function()
+			{
+				var $el = $(this),
+					$parent = $el.offsetParent(),
+					pHeight = $parent.height(),
+					height = $el.height(),
+					newHeight = height > pHeight ? pHeight : height,
+					top = (pHeight - newHeight) / 2;
 
-			return this.css({
-				top: top,
-				height: newHeight
+					$el.css({
+						top: top,
+						height: newHeight
+					});
 			});
 		},
 		centerHorizontal: function ()
 		{
-			var $parent = this.parent(),
-				pWidth = $parent.width(),
-				width = this.width(),
-				newWidth = width > pWidth ? pWidth : width,
-				left = (pWidth - newWidth) / 2;
+			return this.each(function ()
+			{
+				var $el = $(this),
+					$parent = $el.offsetParent(),
+					pWidth = $parent.width(),
+					width = $el.width(),
+					newWidth = width > pWidth ? pWidth : width,
+					left = (pWidth - newWidth) / 2;
 
-			return this.css({
-				left: left,
-				width: newWidth
+				$el.css({
+					left: left,
+					width: newWidth
+				});
 			});
 		}
 	});
