@@ -59,7 +59,7 @@
 				ratio = elWidth / elHeight,
 				height = elHeight, width = elWidth, top = 0, left = 0;
 
-			if (ratio > 1)
+			if (ratio >= 1)
 			{
 				if (elWidth < pWidth)
 					left = (pWidth - elWidth) / 2;
