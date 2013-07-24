@@ -51,62 +51,66 @@
 		},
 		center: function(w, h)
 		{
-			var $parent = this.offsetParent(),
-				pHeight = h || $parent.innerHeight(),
-				pWidth = w || $parent.innerWidth(),
-				elHeight = this.outerHeight(),
-				elWidth = this.innerWidth(),
-				ratio = elWidth / elHeight,
-				height = elHeight, width = elWidth, top = 0, left = 0;
-
-			if (ratio >= 1)
+			return this.each(function ()
 			{
-				if (elWidth < pWidth)
-					left = (pWidth - elWidth) / 2;
-				else if (elWidth > pWidth)
+				var $this = $(this),
+					$parent = $this.offsetParent(),
+					pHeight = h || $parent.innerHeight(),
+					pWidth = w || $parent.innerWidth(),
+					elHeight = $this.outerHeight(),
+					elWidth = $this.innerWidth(),
+					ratio = elWidth / elHeight,
+					height = elHeight, width = elWidth, top = 0, left = 0;
+
+				if (ratio >= 1)
 				{
-					width = pWidth;
-					left = 0;
-					height = width / ratio;
+					if (elWidth < pWidth)
+						left = (pWidth - elWidth) / 2;
+					else if (elWidth > pWidth)
+					{
+						width = pWidth;
+						left = 0;
+						height = width / ratio;
+					}
+
+					if (height < pHeight)
+						top = (pHeight - height) / 2;
+					else if (height > pHeight)
+					{
+						height = pHeight;
+						top = 0;
+						width = height * ratio;
+						left = (pWidth - width) / 2;
+					}
+				}
+				else if (ratio < 1)
+				{
+					if (elHeight < pHeight)
+						top = (pHeight - elHeight) / 2;
+					else if (elHeight > pHeight)
+					{
+						height = pHeight;
+						top = 0;
+						width = height * ratio;
+					}
+
+					if (width < pWidth)
+						left = (pWidth - width) / 2;
+					else if (width > pWidth)
+					{
+						width = pWidth;
+						left = 0;
+						height = width / ratio;
+						top = (pHeight - height) / 2;
+					}
 				}
 
-				if (height < pHeight)
-					top = (pHeight - height) / 2;
-				else if (height > pHeight)
-				{
-					height = pHeight;
-					top = 0;
-					width = height * ratio;
-					left = (pWidth - width) / 2;
-				}
-			}
-			else if (ratio < 1)
-			{
-				if (elHeight < pHeight)
-					top = (pHeight - elHeight) / 2;
-				else if (elHeight > pHeight)
-				{
-					height = pHeight;
-					top = 0;
-					width = height * ratio;
-				}
-
-				if (width < pWidth)
-					left = (pWidth - width) / 2;
-				else if (width > pWidth)
-				{
-					width = pWidth;
-					left = 0;
-					height = width / ratio;
-					top = (pHeight - height) / 2;
-				}
-			}
-
-			return this.css({
-				top: top,
-				left: left,
-				width: width,
-				height: height
+				$this.css({
+					top: top,
+					left: left,
+					width: width,
+					height: height
+				});
 			});
 		},
 		centerVertical: function ()
