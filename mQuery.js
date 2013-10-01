@@ -51,6 +51,14 @@
 		},
 		center: function(w, h)
 		{
+			var position = "absolute";
+			
+			if (arguments.length == 1)
+			{
+				w = w.width;
+				h = w.height;
+				position = w.position;
+			}
 			return this.each(function ()
 			{
 				var $el= $(this),
@@ -105,12 +113,22 @@
 					}
 				}
 
-				$el.css({
-					top: top,
-					left: left,
-					width: width,
-					height: height
-				});
+				if (position != "relative")
+					$el.css({
+						top: top,
+						left: left,
+						width: width,
+						height: height
+					});
+				else 
+				{
+					$el.css({
+						"margin-top": top,
+						"margin-left": left,
+						width: width,
+						height: height
+					})
+				}
 			});
 		},
 		centerVertical: function ()
