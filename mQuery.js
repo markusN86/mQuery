@@ -54,10 +54,10 @@
 			var position = "absolute";
 			
 			if (arguments.length == 1)
-			{
-				w = w.width;
-				h = w.height;
-				position = w.position;
+			{				
+				h = arguments[0].height;
+				position = arguments[0].position;
+				w = arguments[0].width;
 			}
 			return this.each(function ()
 			{
@@ -66,7 +66,7 @@
 					pHeight = h || $parent.innerHeight(),
 					pWidth = w || $parent.innerWidth(),
 					elHeight = $el.outerHeight(),
-					elWidth = $el.innerWidth(),
+					elWidth = $el.outerWidth(),
 					ratio = elWidth / elHeight,
 					height = elHeight, width = elWidth, top = 0, left = 0;
 
