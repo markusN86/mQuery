@@ -19,17 +19,20 @@
 	 * 
 	 * @param {string} name the name of the attribute to access
 	 * @param {string} [value] the value of the attribute to access
+	 * @param {Boolean} [onlyFirst] If set to true, only the first element is accessed for set operations
 	 * @returns {(?string|jQuery)} either the value if set, or the current jQuery object
 	 */
 
-	function _attribute (name, value)
+	function _attribute (name, value, onlyFirst)
 	{
-		if (value && typeof(value) === "string")
+		if ((value && typeof(value) === "string") || value === null)
 		{
-			return this.each(function ()
-			{
-				$(this).attr(name, value);
-			});
+			if (onlyFirst !== true)
+				return this.each(function ()
+				{
+					$(this).attr(name, value);
+				});
+			return this.eq(0).attr(name, value);
 		}
 		else
 			return this.eq(0).attr(name);
@@ -43,7 +46,7 @@
 	*/
 	function id (id)
 	{		
-		return _attribute.apply(this, ["id", id]);
+		return _attribute.apply(this, ["id", id, true]);
 	}
 	
 	/**
