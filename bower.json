@@ -6,5 +6,18 @@
     "Mex <markus@niederbrucker.at>"
   ],
   "license": "MIT",
-  "homepage": "https://markusn86@bitbucket.org/markusn86/mquery.git"
+  "homepage": "https://github.com/mexn/mQuery",
+  "description": "Collection of handy jQuery extending methods.",
+  "keywords": [
+    "jQuery",
+    "plugin"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "tests",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json"
+  ]
 }
