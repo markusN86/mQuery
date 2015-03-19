@@ -1,7 +1,7 @@
 {
   "name": "mQuery",
   "main": "mQuery.js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "authors": [
     "Mex <markus@niederbrucker.at>"
   ],
