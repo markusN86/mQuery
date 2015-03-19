@@ -1,0 +1,10 @@
+{
+  "name": "mQuery",
+  "main": "mQuery.js",
+  "version": "0.1.0",
+  "authors": [
+    "Mex <markus@niederbrucker.at>"
+  ],
+  "license": "MIT",
+  "homepage": "https://markusn86@bitbucket.org/markusn86/mquery.git"
+}
