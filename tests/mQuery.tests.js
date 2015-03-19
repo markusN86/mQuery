@@ -1,23 +1,23 @@
-(function ($)
+(function ($, QUnit)
 {
 	"use strict";
 	
 	var _$el;
 	
-	module("Basic", {
-		setup: function ()
+	QUnit.module("Basic", {
+		beforeEach: function ()
 		{
 			_$el = $("<div />").appendTo("output#test-dom");
 		},
-		teardown: function ()
+		afterEach: function ()
 		{
 			_$el.remove();
 		}
 	});
 	
-	test("id", function ()
+	QUnit.test("id", function (assert)
 	{
-		expect(5);
+		assert.expect(5);
 		
 		// GIVEN a plain div element
 		var $el = $("<div/>").appendTo(_$el),
@@ -27,16 +27,16 @@
 		$el.id(id);
 		
 		// THEN i expect the id to be set to the div
-		strictEqual($el.attr("id"), id, '.id("id")');
+		assert.strictEqual($el.attr("id"), id, '.id("id")');
 		
 		// AND i expect the id is returned correntcly when queried
-		strictEqual($el.id(), id, '.id()');
+		assert.strictEqual($el.id(), id, '.id()');
 		
 		// WHEN i set the id to null
 		$el.id(null);
 		
 		// THEN i expect the id to be deleted
-		strictEqual($el.id(), undefined, ".id(null)")
+        assert.strictEqual($el.id(), undefined, ".id(null)")
 		
 		// WHEN i add a element to the set
 		$el = $el.add($("<div />").appendTo(_$el));
@@ -45,51 +45,52 @@
 		$el.id(id);
 		
 		// THEN i expect only the first element to have the id set
-		strictEqual($el.eq(0).attr("id") === id && !$el.eq(1).attr("id"), true, '.id("id") on multiple elements');
+        assert.strictEqual($el.eq(0).attr("id") === id && !$el.eq(1).attr("id"), true, '.id("id") on multiple elements');
 		
 		// WHEN the elements in the set have a different id each
 		$el.id(null).eq(0).id(id + "1").end().eq(1).id(id + "2");
 		
 		// THEN i expect only the id of the firs element to be returned when queried
-		strictEqual($el.id(), id + "1", '.id() on multiple elements');
+        assert.strictEqual($el.id(), id + "1", '.id() on multiple elements');
 	});
 	
-	test("title", function ()
+	test("title", function (assert)
 	{
-		expect(0);
+        assert.expect(0);
 	});
 	
-	test("src", function ()
+	test("src", function (assert)
 	{
-		expect(0);
+        assert.expect(0);
 	});
 	
-	test("nextCycle", function ()
+	test("nextCycle", function (assert)
 	{
-		expect(0);
+        assert.expect(0);
 	});
 	
-	test("prevCycle", function ()
+	test("prevCycle", function (assert)
 	{
-		expect(0);
+        assert.expect(0);
 	});
 	
-	test("center", function ()
+	test("center", function (assert)
 	{
-		expect(0);
+        assert.expect(0);
 	});
 	
-	test("centerVertical", function ()
+	test("centerVertical", function (assert)
 	{
-		expect(0);
+        assert.expect(0);
 	});
 	
-	test("centerHorizontal", function ()
+	test("centerHorizontal", function (assert)
 	{
-		expect(0);
+        assert.expect(0);
 	});
-	test("clearDimensions", function ()
+
+	test("clearDimensions", function (assert)
 	{
-		expect(0);
+        assert.expect(0);
 	});
-})(jQuery);
+})(jQuery, QUnit);
