@@ -1,6 +1,6 @@
 {
   "name": "mQuery",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "",
   "main": "mQuery.js",
   "directories": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://markusn86@bitbucket.org/markusn86/mquery.git"
+    "url": "https://github.com/mexn/mQuery.git"
   },
   "author": "Mex <markus@niederbrucker.at>",
   "license": "MIT",
