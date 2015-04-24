@@ -20,6 +20,8 @@
     ".jshintrc",
     ".jshintignore",
     "gulpfile.js",
-    "package.json"
+    "package.json",
+    ".min.js",
+    ".min.js.map"
   ]
 }
