@@ -1,13 +1,13 @@
 var gulp = require("gulp");
-var rename = require("gulp-rename");
-var uglify = require("gulp-uglify");
+var uglify = require("gulp-uglifyjs");
 
 gulp.task("uglify", function()
 {
     gulp.src("mQuery.js")
-        .pipe(uglify())
-        .pipe(rename("mQuery.min.js"))
-        .pipe(gulp.dest("."))
+        .pipe(uglify("mQuery.min.js", {
+            outSourceMap: "mQuery.js.map"
+        }))
+        .pipe(gulp.dest("."));
 });
 
 gulp.task("live-uglify", function ()
