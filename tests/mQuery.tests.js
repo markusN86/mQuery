@@ -2,7 +2,8 @@
 {
 	"use strict";
 	
-	var _$el;
+	var _$el,
+        test = QUnit.test;
 	
 	QUnit.module("Basic", {
 		beforeEach: function ()
@@ -15,7 +16,7 @@
 		}
 	});
 	
-	QUnit.test("id", function (assert)
+	test("id", function (assert)
 	{
 		assert.expect(5);
 		
@@ -29,14 +30,14 @@
 		// THEN i expect the id to be set to the div
 		assert.strictEqual($el.attr("id"), id, '.id("id")');
 		
-		// AND i expect the id is returned correntcly when queried
+		// AND i expect the id is returned correctly when queried
 		assert.strictEqual($el.id(), id, '.id()');
 		
 		// WHEN i set the id to null
 		$el.id(null);
 		
 		// THEN i expect the id to be deleted
-        assert.strictEqual($el.id(), undefined, ".id(null)")
+        assert.strictEqual($el.id(), undefined, ".id(null)");
 		
 		// WHEN i add a element to the set
 		$el = $el.add($("<div />").appendTo(_$el));
