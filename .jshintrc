@@ -61,7 +61,10 @@
   "maxerr"        : 100,
   "predef"        : [
     "jQuery",
-    "QUnit"
+    "QUnit",
+    "define",
+    "require",
+    "module"
   ],
   "indent"        : 4
 }
