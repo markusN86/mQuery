@@ -5,7 +5,7 @@ gulp.task("uglify", function()
 {
     gulp.src("mQuery.js")
         .pipe(uglify("mQuery.min.js", {
-            outSourceMap: "mQuery.js.map"
+            outSourceMap: true
         }))
         .pipe(gulp.dest("."));
 });
