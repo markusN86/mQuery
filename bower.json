@@ -1,7 +1,7 @@
 {
   "name": "mQuery",
   "main": "mQuery.js",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "authors": [
     "Mex <markus@niederbrucker.at>"
   ],
@@ -17,6 +17,8 @@
     "bower_components",
     "tests",
     ".gitignore",
+    ".jshintrc",
+    ".jshintignore",
     "gulpfile.js",
     "package.json"
   ]
