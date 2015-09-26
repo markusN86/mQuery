@@ -15,13 +15,20 @@
   "ignore": [
     "node_modules",
     "bower_components",
+    "coverage",
     "tests",
     ".gitignore",
     ".jshintrc",
     ".jshintignore",
+    ".jscsrc",
+    "karma.conf.js",
     "gulpfile.js",
     "package.json",
     ".min.js",
     ".min.js.map"
-  ]
+  ],
+  "devDependencies": {
+    "jQuery": "~2.1.*",
+    "qunit": "~1.19.*"
+  }
 }

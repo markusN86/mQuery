@@ -16,7 +16,17 @@
   "author": "Mex <markus@niederbrucker.at>",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-uglifyjs": "^0.6.1"
+    "gulp": "^3.9.*",
+    "gulp-jscs": "^3.0.*",
+    "gulp-jshint": "^1.11.*",
+    "gulp-karma": "0.0.4",
+    "gulp-uglifyjs": "^0.6.*",
+    "jshint-stylish": "^2.0.*",
+    "karma": "^0.13.*",
+    "karma-coverage": "^0.5.*",
+    "karma-phantomjs-launcher": "^0.2.*",
+    "karma-qunit": "^0.1.*",
+    "phantomjs": "^1.9.*",
+    "qunitjs": "^1.19.*"
   }
 }

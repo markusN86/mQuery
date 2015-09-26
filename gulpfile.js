@@ -1,16 +1,57 @@
-var gulp = require("gulp");
-var uglify = require("gulp-uglifyjs");
+var gulp = require("gulp"),
+    uglify = require("gulp-uglifyjs"),
+    jshint = require("gulp-jshint"),
+    jscs = require("gulp-jscs"),
+    karma = require("gulp-karma"),
+    karmaConf = require("./karma.conf"),
+    conf = {
+        set: function (o)
+        {
+            this.config = o;
+        }
+    };
 
-gulp.task("uglify", function()
+karmaConf(conf);
+
+gulp.task("uglify", function ()
 {
-    gulp.src("mQuery.js")
+    return gulp.src("mQuery.js")
         .pipe(uglify("mQuery.min.js", {
             outSourceMap: true
         }))
         .pipe(gulp.dest("."));
 });
 
-gulp.task("live-uglify", function ()
+gulp.task("jshint", function ()
 {
-    gulp.watch("mQuery.js", ["uglify"]);
+    return gulp.src("**/*.js")
+        .pipe(jshint())
+        .pipe(jshint.reporter("jshint-stylish"))
+        .pipe(jshint.reporter("fail"));
+});
+
+gulp.task("jscs", function ()
+{
+    return gulp.src("**/*.js")
+        .pipe(jscs())
+        .pipe(jscs.reporter())
+        .pipe(jscs.reporter("fail"));
+});
+
+gulp.task("default", function ()
+{
+    return gulp.watch(["**/*.js", "!**/*.min.js"], [
+        "jshint",
+        "jscs",
+        "uglify"
+    ]);
+});
+
+gulp.task("karma", function ()
+{
+    return gulp.src(conf.config.files)
+        .pipe(karma({
+            configFile: "karma.conf.js",
+            action: "watch"
+        }));
 });

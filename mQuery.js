@@ -1,4 +1,4 @@
-(function(factory)
+(function (factory)
 {
     "use strict";
 
@@ -163,7 +163,10 @@
                 elHeight = $el.outerHeight(),
                 elWidth = $el.outerWidth(),
                 ratio = elWidth / elHeight,
-                height = elHeight, width = elWidth, top = 0, left = 0;
+                height = elHeight,
+                width = elWidth,
+                top = 0,
+                left = 0;
 
             if (ratio >= 1)
             {
