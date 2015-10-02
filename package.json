@@ -1,7 +1,7 @@
 {
   "name": "mQuery",
-  "version": "0.2.3",
-  "description": "",
+  "version": "0.2.4",
+  "description": "Collection of handy jQuery extending methods.",
   "main": "mQuery.js",
   "directories": {
     "test": "tests"
