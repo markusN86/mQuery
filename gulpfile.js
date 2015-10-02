@@ -4,16 +4,17 @@ var gulp = require("gulp"),
     jscs = require("gulp-jscs"),
     karma = require("gulp-karma"),
     karmaConf = require("./karma.conf"),
-    conf = {
+    karmaConfig = {
         set: function (o)
         {
             this.config = o;
         }
-    };
+    },
+    glob = ["*.js", "tests/*.js", "!*.min.js"];
 
-karmaConf(conf);
+karmaConf(karmaConfig);
 
-gulp.task("uglify", function ()
+gulp.task("uglify", ["jshint", "jscs"], function ()
 {
     return gulp.src("mQuery.js")
         .pipe(uglify("mQuery.min.js", {
@@ -24,7 +25,7 @@ gulp.task("uglify", function ()
 
 gulp.task("jshint", function ()
 {
-    return gulp.src("**/*.js")
+    return gulp.src(glob)
         .pipe(jshint())
         .pipe(jshint.reporter("jshint-stylish"))
         .pipe(jshint.reporter("fail"));
@@ -32,27 +33,22 @@ gulp.task("jshint", function ()
 
 gulp.task("jscs", function ()
 {
-    return gulp.src("**/*.js")
+    return gulp.src(glob)
         .pipe(jscs())
         .pipe(jscs.reporter())
         .pipe(jscs.reporter("fail"));
 });
 
-gulp.task("default", function ()
+gulp.task("test", ["uglify"], function ()
 {
-    return gulp.watch(["**/*.js", "!**/*.min.js"], [
-        "jshint",
-        "jscs",
-        "uglify",
-        "karma"
-    ]);
-});
-
-gulp.task("karma", function ()
-{
-    return gulp.src(conf.config.files)
+    return gulp.src(karmaConfig.config.files)
         .pipe(karma({
             configFile: "karma.conf.js",
             action: "run"
         }));
+});
+
+gulp.task("default", function ()
+{
+    return gulp.watch(glob, ["test"]);
 });
