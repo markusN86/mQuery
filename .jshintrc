@@ -10,7 +10,6 @@
   "noempty"       : true,
   "nonew"         : true,
   "plusplus"      : true,
-  "regexp"        : true,
   "undef"         : true,
   "strict"        : true,
   "trailing"      : true,
@@ -31,9 +30,7 @@
   "laxcomma"      : false,
   "loopfunc"      : false,
   "multistr"      : false,
-  "onecase"       : false,
   "proto"         : false,
-  "regexdash"     : false,
   "scripturl"     : false,
   "smarttabs"     : false,
   "shadow"        : false,
@@ -46,6 +43,7 @@
   "devel"         : false,
   "dojo"          : false,
   "jquery"        : true,
+  "qunit"         : true,
   "mootools"      : false,
   "node"          : true,
   "nonstandard"   : false,
@@ -59,8 +57,8 @@
   "white"         : false,
 
   "maxerr"        : 100,
-  "predef"        : [
-    "QUnit"
-  ],
+  "globals"       : {
+    "define"      : false
+  },
   "indent"        : 4
 }

@@ -29,6 +29,7 @@
   ],
   "devDependencies": {
     "jQuery": "~2.1.*",
-    "qunit": "~1.19.*"
+    "qunit": "~1.19.*",
+    "qunit-parameterize": "~0.4.*"
   }
 }

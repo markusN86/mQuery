@@ -2,6 +2,7 @@
 {
     "use strict";
 
+    /* istanbul ignore next */
     if (typeof(define) === "function" && define.amd)
     {
         define(["jquery"], factory);
@@ -14,7 +15,7 @@
     {
         factory(jQuery);
     }
-}(function ($)
+}(function ($, undefined)
 {
     /* jshint validthis:true */
 
@@ -140,28 +141,30 @@
      * Centers each element of the set in its first positioned parent.
      * The element itself must also be positioned.
      *
-     * @param {Number} [w] Optional maximum width of the element.
-     * @param {Number} [h] Optional maximum height of the element
+     * @param {Number} [w = undefined] Maximum width of the element.
+     * @param {Number} [h = undefined] Maximum height of the element
      * @returns {jQuery} the current jQuery object
      */
     $.fn.center = function (w, h)
     {
         var position = "absolute";
 
-        if (arguments.length === 1)
+        if (arguments.length === 1 && typeof(arguments[0]) === "object")
         {
             h = arguments[0].height;
-            position = arguments[0].position;
+            position = arguments[0].position || position;
             w = arguments[0].width;
         }
         return this.each(function ()
         {
             var $el = $(this),
                 $parent = $el.offsetParent(),
-                pHeight = h || $parent.innerHeight(),
-                pWidth = w || $parent.innerWidth(),
+                pHeight = $parent.innerHeight(),
+                pWidth = $parent.innerWidth(),
                 elHeight = $el.outerHeight(),
                 elWidth = $el.outerWidth(),
+                maxHeight = h !== undefined ? Math.min(h, pHeight) : pHeight,
+                maxWidth = w !== undefined ? Math.min(w, pWidth) : pWidth,
                 ratio = elWidth / elHeight,
                 height = elHeight,
                 width = elWidth,
@@ -170,50 +173,42 @@
 
             if (ratio >= 1)
             {
-                if (elWidth < pWidth)
+                left = (pWidth - elWidth) / 2;
+
+                if (elWidth > maxWidth)
                 {
-                    left = (pWidth - elWidth) / 2;
-                }
-                else if (elWidth > pWidth)
-                {
-                    width = pWidth;
-                    left = 0;
+                    width = maxWidth;
+                    left = (pWidth - width) / 2;
                     height = width / ratio;
                 }
 
-                if (height < pHeight)
+                top = (pHeight - height) / 2;
+
+                if (height > maxHeight)
                 {
+                    height = maxHeight;
                     top = (pHeight - height) / 2;
-                }
-                else if (height > pHeight)
-                {
-                    height = pHeight;
-                    top = 0;
                     width = height * ratio;
                     left = (pWidth - width) / 2;
                 }
             }
             else if (ratio < 1)
             {
-                if (elHeight < pHeight)
+                top = (pHeight - elHeight) / 2;
+
+                if (elHeight > maxHeight)
                 {
-                    top = (pHeight - elHeight) / 2;
-                }
-                else if (elHeight > pHeight)
-                {
-                    height = pHeight;
-                    top = 0;
+                    height = maxHeight;
+                    top = (pHeight - height) / 2;
                     width = height * ratio;
                 }
 
-                if (width < pWidth)
+                left = (pWidth - width) / 2;
+
+                if (width > maxWidth)
                 {
+                    width = maxWidth;
                     left = (pWidth - width) / 2;
-                }
-                else if (width > pWidth)
-                {
-                    width = pWidth;
-                    left = 0;
                     height = width / ratio;
                     top = (pHeight - height) / 2;
                 }

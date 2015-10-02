@@ -16,8 +16,10 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'bower_components/jQuery/dist/jquery.js',
+      'bower_components/qunit-parameterize/qunit-parameterize.js',
       'mQuery.js',
-      'tests/mQuery.tests.js'
+      'tests/mQuery.tests.js',
+      'tests/mQuery.center.tests.js'
     ],
 
 

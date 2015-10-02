@@ -43,7 +43,8 @@ gulp.task("default", function ()
     return gulp.watch(["**/*.js", "!**/*.min.js"], [
         "jshint",
         "jscs",
-        "uglify"
+        "uglify",
+        "karma"
     ]);
 });
 
@@ -52,6 +53,6 @@ gulp.task("karma", function ()
     return gulp.src(conf.config.files)
         .pipe(karma({
             configFile: "karma.conf.js",
-            action: "watch"
+            action: "run"
         }));
 });

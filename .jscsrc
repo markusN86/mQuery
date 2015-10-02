@@ -12,7 +12,6 @@
   "disallowSpaceBeforeSemicolon": true,
   "disallowSpacesInCallExpression": true,
   "disallowSpacesInsideArrayBrackets": "all",
-  "disallowSpacesInsideObjectBrackets": "all",
   "disallowSpacesInsideParentheses": true,
   "disallowTrailingComma": true,
   "disallowTrailingWhitespace": true,
@@ -120,6 +119,7 @@
     "mQuery.min.js",
     "karma.conf.js",
     "bower_components/**/*",
-    "node_modules/**/*"
+    "node_modules/**/*",
+    "coverage/**/*"
   ]
 }
