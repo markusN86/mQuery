@@ -2,18 +2,9 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglifyjs"),
     jshint = require("gulp-jshint"),
     jscs = require("gulp-jscs"),
-    karma = require("gulp-karma"),
-    karmaConf = require("./karma.conf"),
-    karmaConfig = {
-        set: function (o)
-        {
-            this.config = o;
-        }
-    },
+    Server = require("karma").Server,
     glob = ["*.js", "tests/*.js", "!*.min.js"],
     coveralls = require("gulp-coveralls");
-
-karmaConf(karmaConfig);
 
 gulp.task("uglify", ["jshint", "jscs"], function ()
 {
@@ -40,18 +31,17 @@ gulp.task("jscs", function ()
         .pipe(jscs.reporter("fail"));
 });
 
-gulp.task("test", ["uglify"], function ()
+gulp.task("test", ["uglify"], function (done)
 {
-    return gulp.src(karmaConfig.config.files)
-        .pipe(karma({
-            configFile: "karma.conf.js",
-            action: "run"
-        }));
+    new Server({
+        configFile: __dirname + "/karma.conf.js",
+        singleRun: true
+    }, done).start();
 });
 
 gulp.task("coveralls", ["test"], function ()
 {
-    return gulp.src(".build/coverage/lcov.info")
+    return gulp.src(".build/coverage/lcov/lcov.info")
         .pipe(coveralls());
 });
 

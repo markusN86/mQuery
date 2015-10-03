@@ -20,7 +20,6 @@
     "gulp-coveralls": "^0.1.*",
     "gulp-jscs": "^3.0.*",
     "gulp-jshint": "^1.11.*",
-    "gulp-karma": "0.0.4",
     "gulp-uglifyjs": "^0.6.*",
     "jshint-stylish": "^2.0.*",
     "karma": "^0.13.*",
