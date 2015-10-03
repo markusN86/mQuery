@@ -10,7 +10,8 @@ var gulp = require("gulp"),
             this.config = o;
         }
     },
-    glob = ["*.js", "tests/*.js", "!*.min.js"];
+    glob = ["*.js", "tests/*.js", "!*.min.js"],
+    coveralls = require("gulp-coveralls");
 
 karmaConf(karmaConfig);
 
@@ -46,6 +47,12 @@ gulp.task("test", ["uglify"], function ()
             configFile: "karma.conf.js",
             action: "run"
         }));
+});
+
+gulp.task("coveralls", ["test"], function ()
+{
+    return gulp.src(".build/coverage/lcov.info")
+        .pipe(coveralls());
 });
 
 gulp.task("default", function ()

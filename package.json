@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "ci": "gulp test"
+    "ci": "gulp coveralls"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.*",
+    "gulp-coveralls": "^0.1.*",
     "gulp-jscs": "^3.0.*",
     "gulp-jshint": "^1.11.*",
     "gulp-karma": "0.0.4",

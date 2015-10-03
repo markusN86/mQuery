@@ -15,7 +15,7 @@
   "ignore": [
     "node_modules",
     "bower_components",
-    "coverage",
+    ".build",
     "tests",
     ".gitignore",
     ".jshintrc",
