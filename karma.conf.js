@@ -17,7 +17,7 @@ module.exports = function(config) {
     files: [
       'bower_components/jQuery/dist/jquery.js',
       'bower_components/qunit-parameterize/qunit-parameterize.js',
-      'mQuery.js',
+      'dist/mQuery.packed.js',
       'tests/mQuery.tests.js',
       'tests/mQuery.center.tests.js'
     ],
