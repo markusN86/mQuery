@@ -1,3 +1,5 @@
+import { _register } from "./_utils";
+
 /**
  * Centers each element of the set in its first positioned parent.
  * The element itself must also be positioned.
@@ -6,8 +8,7 @@
  * @param {Number} [h = undefined] Maximum height of the element
  * @returns {jQuery} the current jQuery object
  */
-
-export default function center (w, h)
+function center (w, h)
 {
     "use strict";
 
@@ -99,3 +100,6 @@ export default function center (w, h)
         }
     });
 }
+
+_register("center", center);
+export default center;

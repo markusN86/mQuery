@@ -1,19 +1,17 @@
-(function (global, $, QUnit)
+(function ($, QUnit)
 {
     "use strict";
 
-    var _$el = global._$el,
+    var _$el,
         width = 400,
         height = 400,
         _$output = $("<output id=\"test-dom\" style=\"position:relative;display:block;height:" +
-            height + "px;width:" + width + "px;\"></output>").appendTo("body"),
-        cases = QUnit.cases,
-        test = QUnit.test;
+            height + "px;width:" + width + "px;\"></output>").appendTo("body");
 
-    QUnit.module("mQuery", {
+    QUnit.module("mQuery.id", {
         beforeEach: function ()
         {
-            _$el = global._$el = $("<div />").appendTo(_$output);
+            _$el = $("<div />").appendTo(_$output);
         },
         afterEach: function ()
         {
@@ -21,7 +19,7 @@
         }
     });
 
-    test("id", function (assert)
+    QUnit.test("id", function (assert)
     {
         assert.expect(5);
 
@@ -61,38 +59,4 @@
         assert.strictEqual($el.id(), id + "1", ".id() on multiple elements");
     });
 
-    test("title", function (assert)
-    {
-        assert.expect(0);
-    });
-
-    test("src", function (assert)
-    {
-        assert.expect(0);
-    });
-
-    test("nextCycle", function (assert)
-    {
-        assert.expect(0);
-    });
-
-    test("prevCycle", function (assert)
-    {
-        assert.expect(0);
-    });
-
-    test("centerVertical", function (assert)
-    {
-        assert.expect(0);
-    });
-
-    test("centerHorizontal", function (assert)
-    {
-        assert.expect(0);
-    });
-
-    test("clearDimensions", function (assert)
-    {
-        assert.expect(0);
-    });
-})(window, jQuery, QUnit);
+})(jQuery, QUnit);

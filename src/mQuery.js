@@ -1,8 +1,20 @@
-"use strict";
+/**
+ * Represents a jQuery object
+ *
+ * @typedef {object} jQuery
+ */
 
-import center from "./center.js";
+/**
+ * Represents a jQuery selector
+ *
+ * @typedef {object} Selector
+ */
 
-if ($ && $.fn)
-{
-    $.fn.center = center;
-}
+import "./id";
+import "./title";
+import "./nextCycle.js";
+import "./prevCycle.js";
+import "./center.js";
+import "./centerVertical.js";
+import "./centerHorizontal.js";
+import "./clearDimensions.js";

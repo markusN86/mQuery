@@ -1,18 +1,29 @@
+var webpack = require("webpack");   
+
 module.exports = {
     entry: "./src/mQuery.js",
     output: {
-        filename: "./dist/mQuery.packed.js"
+        libraryTarget: "umd",
+        filename: "mQuery.js",
+        path: "./dist"
     },
     module: {
         loaders: [{
             test: /\.js$/,
             loader: "babel-loader"
-        }, {
-            test: /\.js$/,
-            loader: "eslint-loader"
         }]
     },
-    eslint: {
-        configFile: ".eslintrc"
-    }
+    plugins: [
+        new webpack.SourceMapDevToolPlugin({
+            filename: "mQuery.js.map"
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            mangle: {
+                except: ["$", "exports", "require"]
+            }
+        })
+    ]
 };

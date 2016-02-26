@@ -1,27 +1,19 @@
 {
     "rules": {
-        "indent": [
-            2,
-            4
-        ],
-        "quotes": [
-            2,
-            "double"
-        ],
-        "linebreak-style": [
-            2,
-            "unix"
-        ],
-        "semi": [
-            2,
-            "always"
-        ]
+        "strict": 0,
+        "indent": [2, 4],
+        "quotes": [2, "double"],
+        "semi": [2, "always"],
+        "block-spacing": [2, "always"],
+        "brace-style": [2, "allman"],
+        "keyword-spacing": [2, {"before": true, "after": true, "overrides": {}}]
     },
     "env": {
         "es6": true,
         "browser": true,
         "jquery": true,
-        "qunit": true
+        "qunit": true,
+        "node": true
     },
     "extends": "eslint:recommended",
     "ecmaFeatures": {

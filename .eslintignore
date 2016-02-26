@@ -1,2 +1,2 @@
-bower_components
-dist
+dist/
+karma.conf.js
